@@ -7,8 +7,11 @@
 //
 
 #import "Course.h"
+#import "Settings.h"
 
 @implementation Course
+
+#pragma mark - Instance methods
 
 - (instancetype)initPaid:(BOOL)isit {
     self = [super init];
@@ -52,4 +55,110 @@
     return YES;
 }
 
+- (NSString *)description {
+    const char *cstr = [_unionName cStringUsingEncoding:NSUTF16StringEncoding];
+    
+    if (!cstr) {
+        return @"Oh...";
+    }
+    
+    NSString *un;
+//    un = [NSString stringWithCString:cstr encoding:NSUTF16StringEncoding];
+    un = @"";
+    
+    if (_isPaid) {
+        return [NSString stringWithFormat:@"Course paid %@", un];
+    } else {
+        return [NSString stringWithFormat:@"Course free %@", un];
+    }
+}
+
+
+#pragma mark - Static methods
+
+
+NSArray *__allCourses = nil;
+
++ (void)parseCourses:(NSDictionary *)dictionary maybeError:(NSError *)err {
+    if (err) {
+        NSLog(@"Course+parseCourses: Error with Courses data reading");
+        return;
+    }
+    
+    NSMutableArray *current = [NSMutableArray new];
+    
+//    uint done = 0;
+    NSArray *free = [dictionary objectForKey:@"free"];
+    if (free) {
+        for (NSDictionary *el in free) {
+            Course *obj = [[Course alloc] initPaid:NO];
+            
+            obj.teachersName = el[@"ФИО педагога"];
+            obj.contacts = el[@"Обратная связь"];
+            obj.place = el[@"Место проведения занятий"];
+            
+            obj.classesForm = el[@"Форма проведения занятий"];
+            obj.activityKind = el[@"Вид деятельности (направленность)"];
+            obj.unionName = el[@"Наименование объединения"];
+            obj.hoursPerWeek = el[@"Часов в неделю"];
+            
+            obj.ages = el[@"Возраст обучающихся"];
+            obj.grades = el[@"Классы"];
+            
+            if ([obj isValid]) {
+                [current addObject:obj];
+//                done++;
+            } else {
+                NSLog(@"Course+parseCourses: invalid free course object: %@", el);
+            }
+        }
+    }
+//    NSLog(@"Course+parseCourses: parsed %d free courses!", done);
+    
+//    done = 0;
+    NSArray *paid = [dictionary objectForKey:@"paid"];
+    if (paid) {
+        for (NSDictionary *el in paid) {
+            Course *obj = [[Course alloc] initPaid:YES];
+            
+            obj.teachersName = el[@"ФИО педагога"];
+            obj.contacts = el[@"Обратная связь"];
+            obj.place = el[@"Место проведения занятий"];
+            
+            obj.dates = el[@"Начало занятий/окончание учебного периода"];//
+            obj.classesForm = el[@"Форма проведения занятий"];
+            obj.activityKind = el[@"Вид деятельности (направленность)"];
+            obj.unionName = el[@"Наименование объединения"];
+            obj.hoursPerWeek = el[@"Часов в неделю"];
+            
+            obj.ages = el[@"Возраст обучающихся"];
+            obj.grades = el[@"Классы"];
+            
+            obj.costMonth = el[@"Стоимость обучения в месяц (руб)"];//
+            obj.costYear = el[@"Стоимость за годовой учебный период"];//
+            
+            if ([obj isValid]) {
+                [current addObject:obj];
+//                done++;
+            } else {
+                NSLog(@"Course+parseCourses: invalid paid course object: %@", el);
+            }
+        }
+    }
+//    NSLog(@"Course+parseCourses: parsed %d paid courses!", done);
+    
+    @synchronized (self) {
+        __allCourses = current;
+    }
+    
+    [Settings sharedInstance].allCourses = dictionary;
+    [[Settings sharedInstance] save];
+}
+
++ (NSArray *)allCourses {
+    return __allCourses;
+}
+
+
 @end
+

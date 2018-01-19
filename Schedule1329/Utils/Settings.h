@@ -11,7 +11,7 @@
 @interface Settings : NSObject
 
 /// JSON with description of all the courses.
-@property NSString *allCourses;
+@property NSDictionary *allCourses;
 //@property NSArray *allCoursesObjects;
 
 /// Initializes settings object.

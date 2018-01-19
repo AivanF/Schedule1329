@@ -48,6 +48,12 @@
 /// Returns if object is valid.
 - (BOOL)isValid;
 
+/// Describes Course object.
+- (NSString *)description;
+
+/// Parses JSON and saves courses objects.
++ (void)parseCourses:(NSDictionary *)dictionary maybeError:(NSError *)err;
+
 /// Returns array with all courses objects.
 + (NSArray *)allCourses;
 

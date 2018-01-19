@@ -10,11 +10,11 @@
 
 @implementation Requester
 
-- (NSString *)fromJSON:(NSData *)data {
++ (NSString *)fromJSON:(NSData *)data {
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
-- (void)getDataFrom:(NSString *)link
++ (void)getDataFrom:(NSString *)link
          completion:(void (^)(NSDictionary *, NSError *))completion {
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -24,16 +24,18 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
     
-    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request
+    NSURLSessionDataTask *getDataTask = [session dataTaskWithRequest:request
         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                // here, we must abide by the interface of our completion handler.
-                // we must call in EVERY code path, so the caller is never left waiting
+                
                 if (!error) {
                     NSError *err;
                     // convert the NSData response to a dictionary
                     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+                    
+                    NSLog(@"Got JSON of GET with size %lu", data.length);
 //                    NSLog(@"Got JSON of GET: %@\n", [self fromJSON:data]);
+                    
                     if (err) {
                         // there was a parse error...
                         completion(nil, err);
@@ -45,12 +47,13 @@
                     // error from the session...
                     completion(nil, error);
                 }
+                
             });
         }];
-    [postDataTask resume];
+    [getDataTask resume];
 }
 
-- (void)postDataTo:(NSString *)link
++ (void)postDataTo:(NSString *)link
               data:(NSDictionary*)data
          completion:(void (^)(NSDictionary *, NSError *))completion {
     
@@ -72,13 +75,15 @@
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request
         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                // here, we must abide by the interface of our completion handler.
-                // we must call in EVERY code path, so the caller is never left waiting
+                
                 if (!error) {
                     NSError *err;
                     // convert the NSData response to a dictionary
                     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+                    
+                    NSLog(@"Got JSON of POST with size %lu", data.length);
 //                    NSLog(@"Got JSON of POST: %@\n", [self fromJSON:data]);
+                    
                     if (err) {
                         // there was a parse error...
                         completion(nil, err);
@@ -90,6 +95,7 @@
                     // error from the session...
                     completion(nil, error);
                 }
+                
             });
         }];
     [postDataTask resume];

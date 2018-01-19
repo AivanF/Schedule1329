@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "Requester.h"
+#import "Course.h"
+#import "Settings.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Read and parse all the courses
+    NSDictionary *d = [Settings sharedInstance].allCourses;
+    if (d) {
+        NSLog(@"Parse courses from storage");
+        [Course parseCourses:d maybeError:nil];
+    }
+    
+    // Download, save and parse all the courses
+    [Requester getDataFrom:URL_COURSES
+                completion:^(NSDictionary *data, NSError *err) {
+                    NSLog(@"Parse courses from web");
+                    [Course parseCourses:data maybeError:err];
+                }];
+    
     return YES;
 }
 
