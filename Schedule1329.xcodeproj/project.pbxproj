@@ -15,6 +15,7 @@
 		8512BCEE1FEB213A00D37B5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8512BCED1FEB213A00D37B5C /* Assets.xcassets */; };
 		8512BCF11FEB213A00D37B5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8512BCEF1FEB213A00D37B5C /* LaunchScreen.storyboard */; };
 		8512BCFC1FEB213A00D37B5C /* Schedule1329Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8512BCFB1FEB213A00D37B5C /* Schedule1329Tests.m */; };
+		8591404120122932005F6D55 /* Requester.m in Sources */ = {isa = PBXBuildFile; fileRef = 8591404020122932005F6D55 /* Requester.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		8512BCF71FEB213A00D37B5C /* Schedule1329Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Schedule1329Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8512BCFB1FEB213A00D37B5C /* Schedule1329Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Schedule1329Tests.m; sourceTree = "<group>"; };
 		8512BCFD1FEB213A00D37B5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8591403F20122932005F6D55 /* Requester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Requester.h; sourceTree = "<group>"; };
+		8591404020122932005F6D55 /* Requester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Requester.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				8512BCE21FEB213A00D37B5C /* AppDelegate.m */,
 				8512BCE41FEB213A00D37B5C /* ViewController.h */,
 				8512BCE51FEB213A00D37B5C /* ViewController.m */,
+				8591403F20122932005F6D55 /* Requester.h */,
+				8591404020122932005F6D55 /* Requester.m */,
 				8512BCE71FEB213A00D37B5C /* Main.storyboard */,
 				8512BCEF1FEB213A00D37B5C /* LaunchScreen.storyboard */,
 				8512BCDE1FEB213A00D37B5C /* Supporting Files */,
@@ -219,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8512BCE61FEB213A00D37B5C /* ViewController.m in Sources */,
+				8591404120122932005F6D55 /* Requester.m in Sources */,
 				8512BCEC1FEB213A00D37B5C /* Schedule1329.xcdatamodeld in Sources */,
 				8512BCE31FEB213A00D37B5C /* AppDelegate.m in Sources */,
 				8512BCE01FEB213A00D37B5C /* main.m in Sources */,
@@ -424,6 +430,7 @@
 				8512BD021FEB213A00D37B5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8512BD031FEB213A00D37B5C /* Build configuration list for PBXNativeTarget "Schedule1329Tests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +439,7 @@
 				8512BD051FEB213A00D37B5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
