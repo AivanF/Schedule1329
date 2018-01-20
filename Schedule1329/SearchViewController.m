@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "CellCourse.h"
 #import "Course.h"
+#import "Settings.h"
 
 @interface SearchViewController ()
 {
@@ -22,14 +23,10 @@
     [super viewDidLoad];
     
     _content = @[];
-    [_tblAllCourses setBackgroundColor:[UIColor colorWithRed:0.9f
-                                                       green:0.9f
-                                                        blue:1.0f
-                                                       alpha:1.0f]];
-    
-    
-    
-//    [self performSegueWithIdentifier:@"showDetails" sender:nil];
+//    [_tblAllCourses setBackgroundColor:[UIColor colorWithRed:0.9f
+//                                                       green:0.9f
+//                                                        blue:1.0f
+//                                                       alpha:1.0f]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(eventCoursesUpdate:)
@@ -113,6 +110,14 @@
     cell.labActivityKind.text = cur.activityKind;
     cell.labAges.text = cur.ages;
     
+    if (row % 2) {
+        [cell setBackgroundColor:[Settings sharedInstance].colorOddCell];
+    } else {
+        [cell setBackgroundColor:[Settings sharedInstance].colorEvenCell];
+    }
+    
+    // TODO: indicate paid courses!
+    
     return cell;
 }
 
@@ -123,7 +128,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO: add click handling here!
+    [Settings sharedInstance].selectedCourse = [_content objectAtIndex:[indexPath row]];
+    [self performSegueWithIdentifier:@"showDetails" sender:nil];
 }
 
 @end

@@ -9,6 +9,11 @@
 #import "Course.h"
 #import "Settings.h"
 
+/// Returns string of any object.
+NSString *strit(id obj) {
+    return [obj description];
+}
+
 @implementation Course
 
 #pragma mark - Instance methods
@@ -121,17 +126,17 @@ NSArray *__allCourses = nil;
         for (NSDictionary *el in free) {
             Course *obj = [[Course alloc] initPaid:NO];
             
-            obj.teachersName = el[@"ФИО педагога"];
-            obj.contacts = el[@"Обратная связь"];
-            obj.place = el[@"Место проведения занятий"];
+            obj.teachersName = strit(el[@"ФИО педагога"]);
+            obj.contacts = strit(el[@"Обратная связь"]);
+            obj.place = strit(el[@"Место проведения занятий"]);
             
-            obj.classesForm = el[@"Форма проведения занятий"];
-            obj.activityKind = el[@"Вид деятельности (направленность)"];
-            obj.unionName = el[@"Наименование объединения"];
-            obj.hoursPerWeek = el[@"Часов в неделю"];
+            obj.classesForm = strit(el[@"Форма проведения занятий"]);
+            obj.activityKind = strit(el[@"Вид деятельности (направленность)"]);
+            obj.unionName = strit(el[@"Наименование объединения"]);
+            obj.hoursPerWeek = strit(el[@"Часов в неделю"]);
             
-            obj.ages = el[@"Возраст обучающихся"];
-            obj.grades = el[@"Классы"];
+            obj.ages = strit(el[@"Возраст обучающихся"]);
+            obj.grades = strit(el[@"Классы"]);
             
             if ([obj isValid]) {
                 [current addObject:obj];
@@ -146,21 +151,21 @@ NSArray *__allCourses = nil;
         for (NSDictionary *el in paid) {
             Course *obj = [[Course alloc] initPaid:YES];
             
-            obj.teachersName = el[@"ФИО педагога"];
-            obj.contacts = el[@"Обратная связь"];
-            obj.place = el[@"Место проведения занятий"];
+            obj.teachersName = strit(el[@"ФИО педагога"]);
+            obj.contacts = strit(el[@"Обратная связь"]);
+            obj.place = strit(el[@"Место проведения занятий"]);
             
-            obj.dates = el[@"Начало занятий/окончание учебного периода"];//
-            obj.classesForm = el[@"Форма проведения занятий"];
-            obj.activityKind = el[@"Вид деятельности (направленность)"];
-            obj.unionName = el[@"Наименование объединения"];
-            obj.hoursPerWeek = el[@"Часов в неделю"];
+            obj.dates = strit(el[@"Начало занятий/окончание учебного периода"]);//
+            obj.classesForm = strit(el[@"Форма проведения занятий"]);
+            obj.activityKind = strit(el[@"Вид деятельности (направленность)"]);
+            obj.unionName = strit(el[@"Наименование объединения"]);
+            obj.hoursPerWeek = strit(el[@"Часов в неделю"]);
             
-            obj.ages = el[@"Возраст обучающихся"];
-            obj.grades = el[@"Классы"];
+            obj.ages = strit(el[@"Возраст обучающихся"]);
+            obj.grades = strit(el[@"Классы"]);
             
-            obj.costMonth = el[@"Стоимость обучения в месяц (руб)"];//
-            obj.costYear = el[@"Стоимость за годовой учебный период"];//
+            obj.costMonth = strit(el[@"Стоимость обучения в месяц (руб)"]);//
+            obj.costYear = strit(el[@"Стоимость за годовой учебный период"]);//
             
             if ([obj isValid]) {
                 [current addObject:obj];

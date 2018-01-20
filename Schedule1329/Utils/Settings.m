@@ -53,11 +53,18 @@ id loadFromFile(NSString *name) {
         defaults = [NSUserDefaults standardUserDefaults];
         if (nil == [defaults objectForKey:@"welldone"]) {
             _allCourses = nil;
+            _selectedCourse = nil;
             [defaults setObject:@"yep" forKey:@"welldone"];
             [self save];
         } else {
             [self load];
         }
+        
+        self.colorOddCell = [UIColor whiteColor];
+        self.colorEvenCell = [UIColor colorWithRed:0.94f
+                                             green:0.94f
+                                              blue:1.0f
+                                             alpha:1.0f];
     }
     
     return self;

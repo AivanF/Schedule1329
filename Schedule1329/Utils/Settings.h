@@ -6,16 +6,28 @@
 //  Copyright © 2018 AivanF. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+@class Course;
 
 @interface Settings : NSObject
 
 /// JSON with description of all the courses.
 @property NSDictionary *allCourses;
-//@property NSArray *allCoursesObjects;
+
+/// Seleced object from search to description.
+@property Course *selectedCourse;
+
+/// Chosen words from description to search.
+@property NSString *searchPhrase;
+
+/// Colors of courses table cells
+@property UIColor *colorEvenCell, *colorOddCell;
+
 
 /// Initializes settings object.
 - (instancetype)init;
+
 /// Saves app settings.
 - (void)save;
 

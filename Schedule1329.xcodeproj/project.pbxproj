@@ -24,6 +24,8 @@
 		85B78DC820127B5200C712B3 /* Requester.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B78DBF20127B0D00C712B3 /* Requester.m */; };
 		85B78DCB20127D6C00C712B3 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B78DCA20127D6C00C712B3 /* Course.m */; };
 		85B78DCC20127D6C00C712B3 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B78DCA20127D6C00C712B3 /* Course.m */; };
+		85CE7DCF2013E069005A0EF6 /* CellDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85CE7DCE2013E069005A0EF6 /* CellDetail.xib */; };
+		85CE7DD22013E17A005A0EF6 /* CellDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CE7DD12013E17A005A0EF6 /* CellDetail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,9 @@
 		85B78DC520127B4800C712B3 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Utils/Settings.m; sourceTree = "<group>"; };
 		85B78DC920127D6C00C712B3 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Course.h; path = Utils/Course.h; sourceTree = "<group>"; };
 		85B78DCA20127D6C00C712B3 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Course.m; path = Utils/Course.m; sourceTree = "<group>"; };
+		85CE7DCE2013E069005A0EF6 /* CellDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellDetail.xib; sourceTree = "<group>"; };
+		85CE7DD02013E17A005A0EF6 /* CellDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellDetail.h; sourceTree = "<group>"; };
+		85CE7DD12013E17A005A0EF6 /* CellDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellDetail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +117,9 @@
 				85487CCE201357BB00AB3A2C /* CellCourse.h */,
 				85487CCF201357BB00AB3A2C /* CellCourse.m */,
 				85487CCC2013575200AB3A2C /* CellCourse.xib */,
+				85CE7DD02013E17A005A0EF6 /* CellDetail.h */,
+				85CE7DD12013E17A005A0EF6 /* CellDetail.m */,
+				85CE7DCE2013E069005A0EF6 /* CellDetail.xib */,
 				8512BCE71FEB213A00D37B5C /* Main.storyboard */,
 				8512BCEF1FEB213A00D37B5C /* LaunchScreen.storyboard */,
 				85B78DC120127B1100C712B3 /* Utils */,
@@ -238,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85487CCD2013575200AB3A2C /* CellCourse.xib in Resources */,
+				85CE7DCF2013E069005A0EF6 /* CellDetail.xib in Resources */,
 				8512BCF11FEB213A00D37B5C /* LaunchScreen.storyboard in Resources */,
 				8512BCEE1FEB213A00D37B5C /* Assets.xcassets in Resources */,
 				8512BCE91FEB213A00D37B5C /* Main.storyboard in Resources */,
@@ -262,6 +271,7 @@
 				8512BCE61FEB213A00D37B5C /* SearchViewController.m in Sources */,
 				8512BCEC1FEB213A00D37B5C /* Schedule1329.xcdatamodeld in Sources */,
 				85487CD0201357BB00AB3A2C /* CellCourse.m in Sources */,
+				85CE7DD22013E17A005A0EF6 /* CellDetail.m in Sources */,
 				85B78DBD20125DAE00C712B3 /* DetailsViewController.m in Sources */,
 				85B78DCB20127D6C00C712B3 /* Course.m in Sources */,
 				8512BCE31FEB213A00D37B5C /* AppDelegate.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController  <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SearchViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tblAllCourses;
 @property (weak, nonatomic) IBOutlet UITextField *txtDetails;
