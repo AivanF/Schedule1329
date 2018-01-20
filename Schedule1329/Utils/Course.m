@@ -55,6 +55,32 @@
     return YES;
 }
 
+- (BOOL)containsString:(NSString *)str {
+    str = [str lowercaseString];
+    if ([[_unionName lowercaseString] containsString:str] ||
+        [[_teachersName lowercaseString] containsString:str] ||
+        [[_activityKind lowercaseString] containsString:str] ||
+        [[_classesForm lowercaseString] containsString:str] ||
+        [[_place lowercaseString] containsString:str] ||
+        [[_contacts lowercaseString] containsString:str] ||
+        [[_grades lowercaseString] containsString:str] ||
+        [[_ages lowercaseString] containsString:str]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (NSComparisonResult)compare:(Course *)another {
+    NSComparisonResult res = [self.unionName compare:another.unionName];
+    if (res == NSOrderedSame) {
+        res = [self.activityKind compare:another.activityKind];
+    }
+    if (res == NSOrderedSame) {
+        res = [self.ages compare:another.ages];
+    }
+    return res;
+}
+
 - (NSString *)description {
     // https://stackoverflow.com/q/12422599/5308802
     

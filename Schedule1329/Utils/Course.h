@@ -50,6 +50,12 @@
 /// Returns if object is valid.
 - (BOOL)isValid;
 
+/// Returns if the Course contains substring.
+- (BOOL)containsString:(NSString *)str;
+
+/// Compares with another Course object.
+- (NSComparisonResult)compare:(Course *)another;
+
 /// Describes Course object.
 - (NSString *)description;
 

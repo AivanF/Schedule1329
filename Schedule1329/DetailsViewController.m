@@ -10,13 +10,25 @@
 
 @interface DetailsViewController ()
 
+@property (weak, nonatomic) IBOutlet UINavigationBar *barNav;
+
 @end
 
 @implementation DetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    
+    // Creates a back button instead of default behaviour (displaying title of previous screen)
+//    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+//                                                                   style:UIBarButtonItemStylePlain
+//                                                                  target:self
+//                                                                  action:@selector(backAction)];
+    
+//    tipsDetailViewController.navigationItem.leftBarButtonItem = backButton;
+//    _barNav.backItem = backButton;
+//    [_barNav setItem]
 }
 
 - (void)didReceiveMemoryWarning {

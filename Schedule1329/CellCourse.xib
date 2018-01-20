@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIViewController">
+            <connections>
+                <outlet property="view" destination="hM8-bI-hh1" id="Vx4-ay-bcx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="158" id="hM8-bI-hh1" customClass="CellCourse">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hM8-bI-hh1" id="INg-uq-OGd">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наименование объединения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oor-ch-iw9">
+                        <rect key="frame" x="8" y="8" width="359" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вид деятельности (направленность)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lp4-d4-r34">
+                        <rect key="frame" x="8" y="57" width="359" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Возраст обущающихся" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVf-ko-DJv">
+                        <rect key="frame" x="8" y="106" width="359" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Будущий доктор" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQo-dR-WRD">
+                        <rect key="frame" x="8" y="28" width="359" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Естественнонаучная" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7X-8m-fES">
+                        <rect key="frame" x="8" y="77" width="359" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11-14 лет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SX-do-bmz">
+                        <rect key="frame" x="8" y="126" width="359" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="Oor-ch-iw9" secondAttribute="trailing" id="45D-bH-Apq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="xQo-dR-WRD" secondAttribute="trailing" id="4bn-Fv-Mby"/>
+                    <constraint firstItem="kVf-ko-DJv" firstAttribute="trailing" secondItem="INg-uq-OGd" secondAttribute="trailingMargin" id="6pG-o2-ZlE"/>
+                    <constraint firstItem="xQo-dR-WRD" firstAttribute="top" secondItem="Oor-ch-iw9" secondAttribute="bottom" constant="3" id="A3a-JS-xRp"/>
+                    <constraint firstItem="v7X-8m-fES" firstAttribute="trailing" secondItem="INg-uq-OGd" secondAttribute="trailingMargin" id="CAJ-g0-Ws7"/>
+                    <constraint firstItem="kVf-ko-DJv" firstAttribute="top" secondItem="v7X-8m-fES" secondAttribute="bottom" constant="8" id="DCs-M3-qka"/>
+                    <constraint firstItem="xQo-dR-WRD" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="KoA-iQ-bnW"/>
+                    <constraint firstItem="Lp4-d4-r34" firstAttribute="trailing" secondItem="INg-uq-OGd" secondAttribute="trailingMargin" id="Kt1-Ty-JVr"/>
+                    <constraint firstItem="v7X-8m-fES" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="OWy-19-pyR"/>
+                    <constraint firstItem="9SX-do-bmz" firstAttribute="top" secondItem="kVf-ko-DJv" secondAttribute="bottom" constant="3" id="TlQ-FM-k6n"/>
+                    <constraint firstItem="Lp4-d4-r34" firstAttribute="top" secondItem="xQo-dR-WRD" secondAttribute="bottom" constant="8" id="VWc-ug-omp"/>
+                    <constraint firstItem="kVf-ko-DJv" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="Wij-9P-tYR"/>
+                    <constraint firstItem="9SX-do-bmz" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="Yls-zJ-Ju1"/>
+                    <constraint firstItem="Oor-ch-iw9" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="bqe-gB-Q7X"/>
+                    <constraint firstItem="Lp4-d4-r34" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="brf-xT-xEX"/>
+                    <constraint firstItem="Oor-ch-iw9" firstAttribute="top" secondItem="INg-uq-OGd" secondAttribute="topMargin" id="hdL-9H-U4M"/>
+                    <constraint firstItem="9SX-do-bmz" firstAttribute="trailing" secondItem="INg-uq-OGd" secondAttribute="trailingMargin" id="jcU-Pa-e0r"/>
+                    <constraint firstItem="v7X-8m-fES" firstAttribute="top" secondItem="Lp4-d4-r34" secondAttribute="bottom" constant="3" id="lVG-Sa-3xQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="labActivityKind" destination="v7X-8m-fES" id="s30-bA-Kb9"/>
+                <outlet property="labAges" destination="9SX-do-bmz" id="Fc7-T0-iK4"/>
+                <outlet property="labUnionName" destination="xQo-dR-WRD" id="MEU-Sj-aUk"/>
+            </connections>
+            <point key="canvasLocation" x="152.5" y="74"/>
+        </tableViewCell>
+    </objects>
+</document>
