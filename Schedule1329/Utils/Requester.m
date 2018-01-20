@@ -33,7 +33,7 @@
                     // convert the NSData response to a dictionary
                     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
                     
-                    NSLog(@"Got JSON of GET with size %lu", data.length);
+//                    NSLog(@"Got JSON of GET with size %lu", data.length);
 //                    NSLog(@"Got JSON of GET: %@\n", [self fromJSON:data]);
                     
                     if (err) {
@@ -81,7 +81,7 @@
                     // convert the NSData response to a dictionary
                     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
                     
-                    NSLog(@"Got JSON of POST with size %lu", data.length);
+//                    NSLog(@"Got JSON of POST with size %lu", data.length);
 //                    NSLog(@"Got JSON of POST: %@\n", [self fromJSON:data]);
                     
                     if (err) {

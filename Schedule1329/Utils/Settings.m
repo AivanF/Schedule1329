@@ -64,14 +64,14 @@ id loadFromFile(NSString *name) {
 }
 
 - (void)load {
-    NSLog(@"Settings-load");
+//    NSLog(@"Settings-load");
     _allCourses = [defaults objectForKey:@"allcourses"];
 //    _allCourses = loadFromFile(@"allcourses");
     
 }
 
 - (void)save {
-    NSLog(@"Settings-save");
+//    NSLog(@"Settings-save");
 //    if (_allCourses) {
 //        saveToFile(@"allcourses", _allCourses);
 //    }

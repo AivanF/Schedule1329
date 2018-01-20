@@ -24,15 +24,19 @@
     // Read and parse all the courses
     NSDictionary *d = [Settings sharedInstance].allCourses;
     if (d) {
-        NSLog(@"Parse courses from storage");
+//        NSLog(@"Parsing courses from storage");
         [Course parseCourses:d maybeError:nil];
     }
     
     // Download, save and parse all the courses
     [Requester getDataFrom:URL_COURSES
                 completion:^(NSDictionary *data, NSError *err) {
-                    NSLog(@"Parse courses from web");
-                    [Course parseCourses:data maybeError:err];
+                    if ([data description].length != [d description].length) {
+//                        NSLog(@"Parsing courses from web");
+                        [Course parseCourses:data maybeError:err];
+                    } else {
+//                        NSLog(@"Ignoring courses from web, there is nothing new");
+                    }
                 }];
     
     return YES;

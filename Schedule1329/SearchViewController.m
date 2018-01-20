@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "Course.h"
 
 @interface SearchViewController ()
 
@@ -22,7 +23,17 @@
                                                         blue:1.0f
                                                        alpha:1.0f]];
     
-    [self performSegueWithIdentifier:@"showDetails" sender:nil];
+//    [self performSegueWithIdentifier:@"showDetails" sender:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(eventCoursesUpdate:)
+                                                 name:EventCoursesUpdate
+                                               object:nil];
+}
+
+- (void)eventCoursesUpdate:(NSNotification *)notification {
+//    NSLog(@"SearchViewController-eventCoursesUpdate");
+    [_tblAllCourses reloadData];
 }
 
 @end

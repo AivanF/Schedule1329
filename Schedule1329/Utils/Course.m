@@ -56,6 +56,8 @@
 }
 
 - (NSString *)description {
+    // https://stackoverflow.com/q/12422599/5308802
+    
     const char *cstr = [_unionName cStringUsingEncoding:NSUTF16StringEncoding];
     
     if (!cstr) {
@@ -87,7 +89,7 @@ NSArray *__allCourses = nil;
     
     NSMutableArray *current = [NSMutableArray new];
     
-//    uint done = 0;
+    uint fdone = 0, pdone = 0;
     NSArray *free = [dictionary objectForKey:@"free"];
     if (free) {
         for (NSDictionary *el in free) {
@@ -107,15 +109,12 @@ NSArray *__allCourses = nil;
             
             if ([obj isValid]) {
                 [current addObject:obj];
-//                done++;
+                fdone++;
             } else {
                 NSLog(@"Course+parseCourses: invalid free course object: %@", el);
             }
         }
     }
-//    NSLog(@"Course+parseCourses: parsed %d free courses!", done);
-    
-//    done = 0;
     NSArray *paid = [dictionary objectForKey:@"paid"];
     if (paid) {
         for (NSDictionary *el in paid) {
@@ -139,20 +138,26 @@ NSArray *__allCourses = nil;
             
             if ([obj isValid]) {
                 [current addObject:obj];
-//                done++;
+                pdone++;
             } else {
                 NSLog(@"Course+parseCourses: invalid paid course object: %@", el);
             }
         }
     }
-//    NSLog(@"Course+parseCourses: parsed %d paid courses!", done);
+    NSLog(@"Course+parseCourses: parsed %d free and %d paid courses!", fdone, pdone);
     
     @synchronized (self) {
         __allCourses = current;
     }
     
-    [Settings sharedInstance].allCourses = dictionary;
-    [[Settings sharedInstance] save];
+    if (fdone + pdone > 0) {
+        [Settings sharedInstance].allCourses = dictionary;
+        [[Settings sharedInstance] save];
+    }
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:EventCoursesUpdate
+     object:self];
 }
 
 + (NSArray *)allCourses {
