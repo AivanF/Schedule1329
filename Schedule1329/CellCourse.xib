@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -36,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Возраст обущающихся" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVf-ko-DJv">
-                        <rect key="frame" x="8" y="106" width="359" height="17"/>
+                        <rect key="frame" x="8" y="106" width="187.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -54,36 +55,45 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11-14 лет" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SX-do-bmz">
-                        <rect key="frame" x="8" y="126" width="359" height="21.5"/>
+                        <rect key="frame" x="8" y="126" width="187.5" height="21.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Платный курс" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAk-Pd-uSA">
+                        <rect key="frame" x="245" y="127" width="112" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.16140926850000001" green="0.17843713489999999" blue="0.54585375820000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="9SX-do-bmz" firstAttribute="width" secondItem="kVf-ko-DJv" secondAttribute="width" id="0pW-V9-iRb"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Oor-ch-iw9" secondAttribute="trailing" id="45D-bH-Apq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xQo-dR-WRD" secondAttribute="trailing" id="4bn-Fv-Mby"/>
-                    <constraint firstItem="kVf-ko-DJv" firstAttribute="trailing" secondItem="INg-uq-OGd" secondAttribute="trailingMargin" id="6pG-o2-ZlE"/>
                     <constraint firstItem="xQo-dR-WRD" firstAttribute="top" secondItem="Oor-ch-iw9" secondAttribute="bottom" constant="3" id="A3a-JS-xRp"/>
                     <constraint firstItem="v7X-8m-fES" firstAttribute="trailing" secondItem="INg-uq-OGd" secondAttribute="trailingMargin" id="CAJ-g0-Ws7"/>
+                    <constraint firstItem="9SX-do-bmz" firstAttribute="width" secondItem="INg-uq-OGd" secondAttribute="width" multiplier="0.5" id="D1V-uU-SWe"/>
                     <constraint firstItem="kVf-ko-DJv" firstAttribute="top" secondItem="v7X-8m-fES" secondAttribute="bottom" constant="8" id="DCs-M3-qka"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="TAk-Pd-uSA" secondAttribute="bottom" constant="4" id="Ff1-w0-Lp5"/>
                     <constraint firstItem="xQo-dR-WRD" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="KoA-iQ-bnW"/>
                     <constraint firstItem="Lp4-d4-r34" firstAttribute="trailing" secondItem="INg-uq-OGd" secondAttribute="trailingMargin" id="Kt1-Ty-JVr"/>
                     <constraint firstItem="v7X-8m-fES" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="OWy-19-pyR"/>
                     <constraint firstItem="9SX-do-bmz" firstAttribute="top" secondItem="kVf-ko-DJv" secondAttribute="bottom" constant="3" id="TlQ-FM-k6n"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TAk-Pd-uSA" secondAttribute="trailing" constant="10" id="UAx-JE-z87"/>
                     <constraint firstItem="Lp4-d4-r34" firstAttribute="top" secondItem="xQo-dR-WRD" secondAttribute="bottom" constant="8" id="VWc-ug-omp"/>
                     <constraint firstItem="kVf-ko-DJv" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="Wij-9P-tYR"/>
                     <constraint firstItem="9SX-do-bmz" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="Yls-zJ-Ju1"/>
                     <constraint firstItem="Oor-ch-iw9" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="bqe-gB-Q7X"/>
                     <constraint firstItem="Lp4-d4-r34" firstAttribute="leading" secondItem="INg-uq-OGd" secondAttribute="leadingMargin" id="brf-xT-xEX"/>
                     <constraint firstItem="Oor-ch-iw9" firstAttribute="top" secondItem="INg-uq-OGd" secondAttribute="topMargin" id="hdL-9H-U4M"/>
-                    <constraint firstItem="9SX-do-bmz" firstAttribute="trailing" secondItem="INg-uq-OGd" secondAttribute="trailingMargin" id="jcU-Pa-e0r"/>
                     <constraint firstItem="v7X-8m-fES" firstAttribute="top" secondItem="Lp4-d4-r34" secondAttribute="bottom" constant="3" id="lVG-Sa-3xQ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="labActivityKind" destination="v7X-8m-fES" id="s30-bA-Kb9"/>
                 <outlet property="labAges" destination="9SX-do-bmz" id="Fc7-T0-iK4"/>
+                <outlet property="labPaid" destination="TAk-Pd-uSA" id="g9A-hT-5jg"/>
                 <outlet property="labUnionName" destination="xQo-dR-WRD" id="MEU-Sj-aUk"/>
             </connections>
             <point key="canvasLocation" x="152.5" y="74"/>

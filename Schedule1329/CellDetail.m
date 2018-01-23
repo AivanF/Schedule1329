@@ -7,6 +7,7 @@
 //
 
 #import "CellDetail.h"
+#import "DetailsViewController.h"
 
 @implementation CellDetail
 
@@ -22,7 +23,7 @@
 }
 
 - (IBAction)clickItem:(id)sender {
-    // TODO: add some actions!
+    [self.ctrl clickCell:self];
 }
 
 @end

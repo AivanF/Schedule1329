@@ -36,13 +36,32 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)clickBack:(id)sender {
-    [self performSegueWithIdentifier:@"showSearch" sender:nil];
+- (void)clickCell:(CellDetail*)cell {
+    
+    // TODO: handle cell click!
+    
+    switch (cell.index) {
+        case 9: case 10: case 11:
+            // nothing
+            break;
+            
+        case 2:
+            // send email
+            break;
+            
+        case 3:
+            // open maps
+            break;
+            
+        default:
+            // save this:
+            // [cell.btnValue currentTitle]
+            
+            // and go back:
+            [self.navigationController popViewControllerAnimated:YES];
+//            [self.navigationController popToRootViewControllerAnimated:YES];
+            break;
+    }
 }
 
 #pragma mark - TableView Data Source protocol
@@ -124,7 +143,8 @@
             break;
     }
     
-    // TODO: save words to Settings.searchPhrase, set up cell click actions
+    cell.index = (int)row;
+    cell.ctrl = self;
     
     // TODO: multiline descriptions?
     
@@ -135,6 +155,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 64;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 

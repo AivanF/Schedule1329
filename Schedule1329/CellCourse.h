@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labUnionName;
 @property (weak, nonatomic) IBOutlet UILabel *labActivityKind;
 @property (weak, nonatomic) IBOutlet UILabel *labAges;
+@property (weak, nonatomic) IBOutlet UILabel *labPaid;
 
 @end

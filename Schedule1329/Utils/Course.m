@@ -138,6 +138,8 @@ NSArray *__allCourses = nil;
             obj.ages = strit(el[@"Возраст обучающихся"]);
             obj.grades = strit(el[@"Классы"]);
             
+            obj.isPaid = NO;
+            
             if ([obj isValid]) {
                 [current addObject:obj];
                 fdone++;
@@ -166,6 +168,8 @@ NSArray *__allCourses = nil;
             
             obj.costMonth = strit(el[@"Стоимость обучения в месяц (руб)"]);//
             obj.costYear = strit(el[@"Стоимость за годовой учебный период"]);//
+            
+            obj.isPaid = YES;
             
             if ([obj isValid]) {
                 [current addObject:obj];

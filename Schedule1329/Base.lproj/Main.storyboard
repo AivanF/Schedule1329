@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7cR-8T-S57">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Search Courses-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController title="Search Courses" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="SearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TML-C0-DoB">
-                                <rect key="frame" x="16" y="20" width="343" height="30"/>
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RnT-4Z-Nl2">
-                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="513"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="CF0-n7-l25"/>
@@ -44,27 +44,28 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="TML-C0-DoB" secondAttribute="trailing" id="9g9-H3-4bP"/>
                             <constraint firstAttribute="trailing" secondItem="RnT-4Z-Nl2" secondAttribute="trailing" id="BcL-Ic-9YK"/>
-                            <constraint firstItem="TML-C0-DoB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="D1X-ub-OSZ"/>
+                            <constraint firstItem="TML-C0-DoB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="D1X-ub-OSZ"/>
                             <constraint firstItem="TML-C0-DoB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Is7-Pm-OMB"/>
                             <constraint firstItem="RnT-4Z-Nl2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lbj-ST-hIz"/>
                             <constraint firstItem="RnT-4Z-Nl2" firstAttribute="top" secondItem="TML-C0-DoB" secondAttribute="bottom" constant="8" id="NEX-0j-lOw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RnT-4Z-Nl2" secondAttribute="bottom" id="r6C-23-kaG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Поиск курсов" id="VLQ-SM-hxB"/>
                     <connections>
                         <outlet property="tblAllCourses" destination="RnT-4Z-Nl2" id="c7c-bX-02m"/>
                         <outlet property="txtDetails" destination="TML-C0-DoB" id="MgU-GN-DVz"/>
-                        <segue destination="JTK-vv-uAW" kind="show" identifier="showDetails" id="dL1-iO-XZf"/>
+                        <segue destination="JTK-vv-uAW" kind="show" identifier="showDetails" id="fSw-hw-sWG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="37.331334332833585"/>
+            <point key="canvasLocation" x="636" y="70.614692653673174"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Course description-->
         <scene sceneID="fvv-sD-3RW">
             <objects>
-                <viewController id="JTK-vv-uAW" customClass="DetailsViewController" sceneMemberID="viewController">
+                <viewController title="Course description" automaticallyAdjustsScrollViewInsets="NO" id="JTK-vv-uAW" customClass="DetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bhd-xD-sbD"/>
                         <viewControllerLayoutGuide type="bottom" id="jxG-i9-YaR"/>
@@ -73,61 +74,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNb-kF-lC2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание курса" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enU-ub-IMm">
-                                        <rect key="frame" x="80" y="25" width="247" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="dwW-te-Xdp"/>
-                                    <constraint firstItem="enU-ub-IMm" firstAttribute="leading" secondItem="aNb-kF-lC2" secondAttribute="leading" constant="80" id="mCt-g6-izJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="enU-ub-IMm" secondAttribute="trailing" constant="48" id="qWa-Zo-FMp"/>
-                                    <constraint firstItem="enU-ub-IMm" firstAttribute="top" secondItem="aNb-kF-lC2" secondAttribute="top" constant="25" id="w3v-ov-CQ7"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pR7-Im-7gh">
-                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="JTK-vv-uAW" id="4oE-7o-afz"/>
                                     <outlet property="delegate" destination="JTK-vv-uAW" id="kJP-5g-5uU"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3M-YL-tut">
-                                <rect key="frame" x="16" y="20" width="65" height="32"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <state key="normal" title="&lt; Назад"/>
-                                <connections>
-                                    <action selector="clickBack:" destination="JTK-vv-uAW" eventType="touchUpInside" id="so6-1C-rAf"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q3M-YL-tut" firstAttribute="leading" secondItem="jN5-91-ogx" secondAttribute="leading" constant="16" id="5KI-cX-aTq"/>
-                            <constraint firstItem="pR7-Im-7gh" firstAttribute="top" secondItem="aNb-kF-lC2" secondAttribute="bottom" constant="8" id="9E5-Lx-WxK"/>
-                            <constraint firstItem="aNb-kF-lC2" firstAttribute="top" secondItem="jN5-91-ogx" secondAttribute="top" id="DWM-hE-oFb"/>
-                            <constraint firstAttribute="trailing" secondItem="aNb-kF-lC2" secondAttribute="trailing" id="TZY-nR-mq4"/>
+                            <constraint firstItem="pR7-Im-7gh" firstAttribute="top" secondItem="bhd-xD-sbD" secondAttribute="bottom" id="NDN-5C-0AD"/>
                             <constraint firstAttribute="trailing" secondItem="pR7-Im-7gh" secondAttribute="trailing" id="cm1-ji-D3O"/>
                             <constraint firstItem="jxG-i9-YaR" firstAttribute="top" secondItem="pR7-Im-7gh" secondAttribute="bottom" id="iF0-zG-lVx"/>
-                            <constraint firstItem="aNb-kF-lC2" firstAttribute="leading" secondItem="jN5-91-ogx" secondAttribute="leading" id="tr3-UT-3q0"/>
-                            <constraint firstItem="q3M-YL-tut" firstAttribute="top" secondItem="bhd-xD-sbD" secondAttribute="bottom" id="wEm-N3-T1C"/>
                             <constraint firstItem="pR7-Im-7gh" firstAttribute="leading" secondItem="jN5-91-ogx" secondAttribute="leading" id="wKa-Px-R3J"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="showSearch" id="6Qx-BK-eMA"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Описание курса" id="HZ5-yR-UyH">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="h2Y-CQ-oKc"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPf-eT-cnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197.5999999999999" y="36.431784107946029"/>
+            <point key="canvasLocation" x="1663" y="71"/>
+        </scene>
+        <!--Super App-->
+        <scene sceneID="WCt-x8-4oP">
+            <objects>
+                <navigationController title="Super App" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="7cR-8T-S57" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ssq-yu-y0h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Nf1-SU-lNX">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aql-eA-uf3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5dd-fo-HZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-303.19999999999999" y="70.614692653673174"/>
         </scene>
     </scenes>
 </document>

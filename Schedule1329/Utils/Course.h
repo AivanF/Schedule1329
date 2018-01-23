@@ -13,7 +13,7 @@
 @interface Course : NSObject
 
 /// Is course paid or free
-@property BOOL *isPaid;
+@property BOOL isPaid;
 
 /// All: full teachers name
 @property NSString *teachersName;

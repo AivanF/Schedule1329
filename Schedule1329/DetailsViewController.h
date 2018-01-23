@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class CellDetail;
+
 @interface DetailsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-- (IBAction)clickBack:(id)sender;
+- (void)clickCell:(CellDetail*)cell;
 
 // TableView Data Source protocol
 
@@ -21,5 +23,6 @@
 // TableView Delegate protocol
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

@@ -17,6 +17,8 @@
 // TextField Delegate protocol
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;
+- (void)textFieldDidBeginEditing:(UITextField *)textField;
+- (void)textFieldDidEndEditing:(UITextField *)textField;
 
 // TableView Data Source protocol
 

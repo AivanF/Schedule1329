@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class DetailsViewController;
+
 @interface CellDetail : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
 @property (weak, nonatomic) IBOutlet UIButton *btnValue;
+
+@property (weak, nonatomic) DetailsViewController *ctrl;
+@property (nonatomic) int index;
 
 - (IBAction)clickItem:(id)sender;
 

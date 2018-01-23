@@ -14,6 +14,7 @@
 @interface SearchViewController ()
 {
     NSArray *_content;
+    BOOL _hasfocus;
 }
 @end
 
@@ -22,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _hasfocus = NO;
     _content = @[];
 //    [_tblAllCourses setBackgroundColor:[UIColor colorWithRed:0.9f
 //                                                       green:0.9f
@@ -86,6 +88,14 @@
     return NO;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    _hasfocus = YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    _hasfocus = NO;
+}
+
 #pragma mark - TableView Data Source protocol
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -110,13 +120,13 @@
     cell.labActivityKind.text = cur.activityKind;
     cell.labAges.text = cur.ages;
     
+    [cell.labPaid setHidden:!cur.isPaid];
+    
     if (row % 2) {
         [cell setBackgroundColor:[Settings sharedInstance].colorOddCell];
     } else {
         [cell setBackgroundColor:[Settings sharedInstance].colorEvenCell];
     }
-    
-    // TODO: indicate paid courses!
     
     return cell;
 }
@@ -128,8 +138,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [Settings sharedInstance].selectedCourse = [_content objectAtIndex:[indexPath row]];
-    [self performSegueWithIdentifier:@"showDetails" sender:nil];
+    if (_hasfocus) {
+        [_txtDetails resignFirstResponder];
+    } else {
+        [Settings sharedInstance].selectedCourse = [_content objectAtIndex:[indexPath row]];
+        [self performSegueWithIdentifier:@"showDetails" sender:self];
+    }
 }
 
 @end
