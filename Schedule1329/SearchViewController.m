@@ -37,6 +37,15 @@
     [self updateContent];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    if ([Settings sharedInstance].searchPhrase) {
+        [_txtDetails setText:[Settings sharedInstance].searchPhrase];
+        [Settings sharedInstance].searchPhrase = nil;
+        [self updateContent];
+        [_tblAllCourses setContentOffset:CGPointZero animated:YES];
+    }
+}
+
 - (void)updateContent {
     // Check if has filter options
     NSString *filterText = _txtDetails.text;

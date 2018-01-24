@@ -37,30 +37,101 @@
 }
 
 - (void)clickCell:(CellDetail*)cell {
-    
-    // TODO: handle cell click!
+    NSString *selectedValue = [cell.btnValue currentTitle];
     
     switch (cell.index) {
+        case 6: case 7: case 8:
         case 9: case 10: case 11:
             // nothing
             break;
             
-        case 2:
+        case 2:{
             // send email
-            break;
             
-        case 3:
+            // TODO: test it on a real device!
+            
+            NSString *message = [NSString stringWithFormat:@"Отправить письмо на этот адрес?\n%@", selectedValue];
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"E-mail"
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Отправить" style:UIAlertActionStyleDefault
+                handler:^(UIAlertAction * action) {
+                    // ?subject=title&body=content
+                    NSString *url = [selectedValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+                    url = [NSString stringWithFormat:@"mailto:%@", url];;
+                    
+                    NSLog(@"Trying to open: %@", url);
+                    
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
+                                                       options:[NSDictionary new]
+                                             completionHandler:^(BOOL success) {
+                                                 NSLog(@"Email sent: %s", success ? "true" : "false");
+                                             }];
+                }];
+            
+            UIAlertAction* no = [UIAlertAction actionWithTitle:@"Нет" style:UIAlertActionStyleCancel
+                                                        handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:no];
+            [alert addAction:yes];
+            [self presentViewController:alert animated:YES completion:nil];
+        }break;
+            
+        case 3:{
             // open maps
-            break;
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Карта"
+                                                                           message:@"Открыть адрес на карте?"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
             
-        default:
-            // save this:
-            // [cell.btnValue currentTitle]
+            UIAlertAction* yes = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                handler:^(UIAlertAction * action) {
+                    NSString *url = [selectedValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+                    url = [NSString stringWithFormat:@"http://maps.google.com/?q=%@", url];;
+                    
+                    NSLog(@"Trying to open: %@", url);
+                    
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
+                                                       options:[NSDictionary new]
+                                             completionHandler:^(BOOL success) {
+                                                 NSLog(@"Maps opened: %s", success ? "true" : "false");
+                                             }];
+                }];
             
-            // and go back:
-            [self.navigationController popViewControllerAnimated:YES];
-//            [self.navigationController popToRootViewControllerAnimated:YES];
-            break;
+            UIAlertAction* no = [UIAlertAction actionWithTitle:@"Нет" style:UIAlertActionStyleCancel
+                                                       handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:no];
+            [alert addAction:yes];
+            [self presentViewController:alert animated:YES completion:nil];
+        }break;
+            
+        default:{
+            NSString *message = [NSString stringWithFormat:@"Искать \"%@\"?", selectedValue];
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Поиск"
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* yes = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                handler:^(UIAlertAction * action) {
+                    // save value
+                    [Settings sharedInstance].searchPhrase = selectedValue;
+                    
+                    // and go back:
+                    [self.navigationController popViewControllerAnimated:YES];
+//                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }];
+            
+            UIAlertAction* no = [UIAlertAction actionWithTitle:@"Нет" style:UIAlertActionStyleCancel
+                                                       handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:no];
+            [alert addAction:yes];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        }break;
     }
 }
 
