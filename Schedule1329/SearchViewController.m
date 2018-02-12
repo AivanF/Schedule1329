@@ -50,7 +50,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if ([Settings sharedInstance].searchPhrase) {
+        [_searchController.searchBar setText:[Settings sharedInstance].searchPhrase];
         [Settings sharedInstance].searchPhrase = nil;
+        
         [self updateContent];
         
         [_tblAllCourses setContentOffset:CGPointZero animated:YES];

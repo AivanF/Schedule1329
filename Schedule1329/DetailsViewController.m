@@ -48,8 +48,6 @@
         case 2:{
             // send email
             
-            // TODO: test it on a real device!
-            
             NSString *message = [NSString stringWithFormat:@"Отправить письмо на этот адрес?\n%@", selectedValue];
             
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"E-mail"
@@ -60,19 +58,25 @@
                 handler:^(UIAlertAction * action) {
                     // ?subject=title&body=content
                     NSString *url = [selectedValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
-                    url = [NSString stringWithFormat:@"mailto:%@", url];;
+                    NSString *subject = [_selected.unionName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
                     
-                    NSLog(@"Trying to open: %@", url);
+                    url = [NSString stringWithFormat:@"mailto:%@?subject=%@", url, subject];
+//                    NSLog(@"Trying to open: %@", url);
                     
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
                                                        options:[NSDictionary new]
                                              completionHandler:^(BOOL success) {
                                                  NSLog(@"Email sent: %s", success ? "true" : "false");
+                                                 [alert dismissViewControllerAnimated:YES
+                                                                           completion:nil];
                                              }];
                 }];
             
             UIAlertAction* no = [UIAlertAction actionWithTitle:@"Нет" style:UIAlertActionStyleCancel
-                                                        handler:^(UIAlertAction * action) {}];
+                                                        handler:^(UIAlertAction * action) {
+                                                            [alert dismissViewControllerAnimated:YES
+                                                                                      completion:nil];
+                                                        }];
             
             [alert addAction:no];
             [alert addAction:yes];
@@ -88,19 +92,24 @@
             UIAlertAction* yes = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                 handler:^(UIAlertAction * action) {
                     NSString *url = [selectedValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
-                    url = [NSString stringWithFormat:@"http://maps.google.com/?q=%@", url];;
                     
+                    url = [NSString stringWithFormat:@"http://maps.google.com/?q=%@", url];
                     NSLog(@"Trying to open: %@", url);
                     
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
                                                        options:[NSDictionary new]
                                              completionHandler:^(BOOL success) {
                                                  NSLog(@"Maps opened: %s", success ? "true" : "false");
+                                                 [alert dismissViewControllerAnimated:YES
+                                                                           completion:nil];
                                              }];
                 }];
             
             UIAlertAction* no = [UIAlertAction actionWithTitle:@"Нет" style:UIAlertActionStyleCancel
-                                                       handler:^(UIAlertAction * action) {}];
+                                                       handler:^(UIAlertAction * action) {
+                                                           [alert dismissViewControllerAnimated:YES
+                                                                                     completion:nil];
+                                                       }];
             
             [alert addAction:no];
             [alert addAction:yes];
@@ -122,10 +131,16 @@
                     // and go back:
                     [self.navigationController popViewControllerAnimated:YES];
 //                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    
+                    [alert dismissViewControllerAnimated:YES
+                                              completion:nil];
                 }];
             
             UIAlertAction* no = [UIAlertAction actionWithTitle:@"Нет" style:UIAlertActionStyleCancel
-                                                       handler:^(UIAlertAction * action) {}];
+                                                       handler:^(UIAlertAction * action) {
+                                                           [alert dismissViewControllerAnimated:YES
+                                                                                     completion:nil];
+                                                       }];
             
             [alert addAction:no];
             [alert addAction:yes];
