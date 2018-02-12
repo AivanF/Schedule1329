@@ -1,6 +1,6 @@
 # Schedule 1329
 
-This is a small iOS app with Courses description catalogue for Moscow school No.1329
+This is a small iOS app with **Courses description catalogue** for Moscow school No.1329
 (in spite of app's name, the schedule was decided not to be included by managers).
 The iOS app is a part of group project at Software Engeneering course at NSU HSE. In addition, there are the following parts:
 - [Server side](https://github.com/Alpha424/CoursesAppServer)
@@ -16,8 +16,8 @@ But I also created the icon for both apps.
 - Keyoard is hiding by click ourside it or field being edited.
 
 ### Used techniques:
-- **GUI**: StoryBoard's, xib's, Constraint's, `UINavigationController`, `UITableView`, `UIAlertController`
+- **GUI**: StoryBoard's, xib's, `UINavigationController`, `UITableView`, `UIAlertController`, `UISearchController`
 - **Networking:** `NSURLSession`, `NSMutableURLRequest`
 - **Data storing:** `NSUserDefaults`
-- **Architectural:** Singleton pattern (`Settings` class), `NSNotificationCenter`
-- Other: `[UIApplication openURL: options: completionHandler: ]`
+- **Architectural:** Singleton pattern (the `Settings` class), `NSNotificationCenter`
+- **Other apps interaction:**: `[UIApplication openURL: options: completionHandler: ]`
