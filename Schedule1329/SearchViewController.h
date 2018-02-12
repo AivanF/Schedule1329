@@ -12,7 +12,7 @@
     UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tblAllCourses;
-
+@property (weak, nonatomic) IBOutlet UILabel *labOut;
 
 // SearchBar Delegate protocol
 

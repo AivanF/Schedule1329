@@ -22,24 +22,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RnT-4Z-Nl2">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="579"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="CF0-n7-l25"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ysd-z1-VBP"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbp-tV-J1n">
+                                <rect key="frame" x="0.0" y="644" width="375" height="23"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDA-6q-16E">
+                                        <rect key="frame" x="0.0" y="1" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.84999999999999998" green="1" blue="0.875" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="wDA-6q-16E" secondAttribute="trailing" id="4Z9-4s-CgK"/>
+                                    <constraint firstAttribute="height" constant="23" id="Rdg-mZ-D5s"/>
+                                    <constraint firstItem="wDA-6q-16E" firstAttribute="leading" secondItem="Gbp-tV-J1n" secondAttribute="leading" id="UtV-LR-4CY"/>
+                                    <constraint firstItem="wDA-6q-16E" firstAttribute="top" secondItem="Gbp-tV-J1n" secondAttribute="top" constant="1" id="ojp-YL-pFg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Gbp-tV-J1n" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2bW-av-oqo"/>
                             <constraint firstAttribute="trailing" secondItem="RnT-4Z-Nl2" secondAttribute="trailing" id="BcL-Ic-9YK"/>
+                            <constraint firstAttribute="bottom" secondItem="Gbp-tV-J1n" secondAttribute="bottom" id="HfK-zc-kbI"/>
                             <constraint firstItem="RnT-4Z-Nl2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lbj-ST-hIz"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RnT-4Z-Nl2" secondAttribute="bottom" id="r6C-23-kaG"/>
+                            <constraint firstItem="Gbp-tV-J1n" firstAttribute="top" secondItem="RnT-4Z-Nl2" secondAttribute="bottom" constant="1" id="TB8-Ee-M2T"/>
                             <constraint firstItem="RnT-4Z-Nl2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="uZo-9V-xFV"/>
+                            <constraint firstAttribute="trailing" secondItem="Gbp-tV-J1n" secondAttribute="trailing" id="xlm-mR-ZKj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Поиск курсов" id="VLQ-SM-hxB"/>
                     <connections>
+                        <outlet property="labOut" destination="wDA-6q-16E" id="Ybp-zT-PcZ"/>
                         <outlet property="tblAllCourses" destination="RnT-4Z-Nl2" id="c7c-bX-02m"/>
                         <segue destination="JTK-vv-uAW" kind="show" identifier="showDetails" id="fSw-hw-sWG"/>
                     </connections>
@@ -100,6 +122,15 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dd-fo-HZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBar contentMode="scaleToFill" id="tXd-5h-Ceu">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <tabBarItem systemItem="favorites" id="XAX-76-xgX"/>
+                        <tabBarItem systemItem="more" id="YlH-fp-QpX"/>
+                    </items>
+                </tabBar>
             </objects>
             <point key="canvasLocation" x="-303.19999999999999" y="70.614692653673174"/>
         </scene>

@@ -31,6 +31,7 @@
     _searchController.searchResultsUpdater = self;
     _searchController.hidesNavigationBarDuringPresentation = NO;
     _searchController.dimsBackgroundDuringPresentation = NO;
+    
     _searchController.searchBar.delegate = self;
     _searchController.searchBar.placeholder = @"Искать кружки";
     [_searchController.searchBar setValue:@"Отмена" forKey:@"_cancelButtonText"];
@@ -89,10 +90,12 @@
             }
         }
         _content = current;
+        [_labOut setText:[NSString stringWithFormat:@"Найдено: %d шт", (int)[_content count]]];
         
     } else {
         // Use raw data
         _content = [Course allCourses];
+        [_labOut setText:[NSString stringWithFormat:@"Все кружки (%d шт)", (int)[_content count]]];
     }
     
     // Sort objects
