@@ -32,6 +32,8 @@
     _searchController.hidesNavigationBarDuringPresentation = NO;
     _searchController.dimsBackgroundDuringPresentation = NO;
     _searchController.searchBar.delegate = self;
+    _searchController.searchBar.placeholder = @"Искать кружки";
+    [_searchController.searchBar setValue:@"Отмена" forKey:@"_cancelButtonText"];
     [_searchController.searchBar sizeToFit];
     
     // these leads to constant search bar even after segues
