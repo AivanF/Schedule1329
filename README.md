@@ -20,4 +20,4 @@ But I also created the icon for both apps.
 - **Networking:** `NSURLSession`, `NSMutableURLRequest`
 - **Data storing:** `NSUserDefaults`
 - **Architectural:** Singleton pattern (the `Settings` class), `NSNotificationCenter`
-- **Other apps interaction:**: `[UIApplication openURL: options: completionHandler: ]`
+- **Other apps interaction:** `[UIApplication openURL: options: completionHandler: ]`
