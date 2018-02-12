@@ -8,17 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SearchViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,
+    UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tblAllCourses;
-@property (weak, nonatomic) IBOutlet UITextField *txtDetails;
 
 
-// TextField Delegate protocol
+// SearchBar Delegate protocol
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;
-- (void)textFieldDidBeginEditing:(UITextField *)textField;
-- (void)textFieldDidEndEditing:(UITextField *)textField;
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar;
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar;
 
 // TableView Data Source protocol
 

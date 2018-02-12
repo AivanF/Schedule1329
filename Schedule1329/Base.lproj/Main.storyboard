@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,17 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TML-C0-DoB">
-                                <rect key="frame" x="16" y="72" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WhC-s2-day"/>
-                                </connections>
-                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RnT-4Z-Nl2">
-                                <rect key="frame" x="0.0" y="110" width="375" height="513"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="CF0-n7-l25"/>
@@ -42,19 +32,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="TML-C0-DoB" secondAttribute="trailing" id="9g9-H3-4bP"/>
                             <constraint firstAttribute="trailing" secondItem="RnT-4Z-Nl2" secondAttribute="trailing" id="BcL-Ic-9YK"/>
-                            <constraint firstItem="TML-C0-DoB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="D1X-ub-OSZ"/>
-                            <constraint firstItem="TML-C0-DoB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Is7-Pm-OMB"/>
                             <constraint firstItem="RnT-4Z-Nl2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Lbj-ST-hIz"/>
-                            <constraint firstItem="RnT-4Z-Nl2" firstAttribute="top" secondItem="TML-C0-DoB" secondAttribute="bottom" constant="8" id="NEX-0j-lOw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RnT-4Z-Nl2" secondAttribute="bottom" id="r6C-23-kaG"/>
+                            <constraint firstItem="RnT-4Z-Nl2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="uZo-9V-xFV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Поиск курсов" id="VLQ-SM-hxB"/>
                     <connections>
                         <outlet property="tblAllCourses" destination="RnT-4Z-Nl2" id="c7c-bX-02m"/>
-                        <outlet property="txtDetails" destination="TML-C0-DoB" id="MgU-GN-DVz"/>
                         <segue destination="JTK-vv-uAW" kind="show" identifier="showDetails" id="fSw-hw-sWG"/>
                     </connections>
                 </viewController>

@@ -15,6 +15,7 @@
 {
     NSArray *_content;
     BOOL _hasfocus;
+    UISearchController *_searchController;
 }
 @end
 
@@ -25,10 +26,20 @@
     
     _hasfocus = NO;
     _content = @[];
-//    [_tblAllCourses setBackgroundColor:[UIColor colorWithRed:0.9f
-//                                                       green:0.9f
-//                                                        blue:1.0f
-//                                                       alpha:1.0f]];
+    
+    _searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    _searchController.searchResultsUpdater = self;
+    _searchController.hidesNavigationBarDuringPresentation = NO;
+    _searchController.dimsBackgroundDuringPresentation = NO;
+    _searchController.searchBar.delegate = self;
+    [_searchController.searchBar sizeToFit];
+    
+    // these leads to constant search bar even after segues
+//    _tblAllCourses.tableHeaderView = _searchController.searchBar;
+//    [_tblAllCourses setContentOffset:CGPointMake(0, _searchController.searchBar.frame.size.height)];
+    
+    self.navigationItem.titleView = _searchController.searchBar;
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(eventCoursesUpdate:)
@@ -39,16 +50,18 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     if ([Settings sharedInstance].searchPhrase) {
-        [_txtDetails setText:[Settings sharedInstance].searchPhrase];
         [Settings sharedInstance].searchPhrase = nil;
         [self updateContent];
+        
         [_tblAllCourses setContentOffset:CGPointZero animated:YES];
     }
 }
 
 - (void)updateContent {
+    NSString *filterText = _searchController.searchBar.text;
+//    NSLog(@"[ %@ ]", filterText);
+    
     // Check if has filter options
-    NSString *filterText = _txtDetails.text;
     BOOL filter = NO;
     NSMutableArray *parts = nil;
     if ([filterText length] > 0) {
@@ -80,7 +93,7 @@
     
     // Sort objects
     _content = [_content sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"Conent size: %d", (int)[_content count]);
+//    NSLog(@"Content size: %d", (int)[_content count]);
     
     [_tblAllCourses reloadData];
 }
@@ -89,20 +102,20 @@
     [self updateContent];
 }
 
-#pragma mark - TextField Delegate protocol
+#pragma mark - SearchBar Delegate protocol
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    [self updateContent];
-    return NO;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     _hasfocus = YES;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     _hasfocus = NO;
+}
+
+#pragma mark - SearchResults Updating protocol
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)aSearchController {
+    [self updateContent];
 }
 
 #pragma mark - TableView Data Source protocol
@@ -148,7 +161,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_hasfocus) {
-        [_txtDetails resignFirstResponder];
+        [_searchController.searchBar resignFirstResponder];
     } else {
         [Settings sharedInstance].selectedCourse = [_content objectAtIndex:[indexPath row]];
         [self performSegueWithIdentifier:@"showDetails" sender:self];

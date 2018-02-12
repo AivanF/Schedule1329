@@ -110,16 +110,8 @@
 			children = (
 				8512BCE11FEB213A00D37B5C /* AppDelegate.h */,
 				8512BCE21FEB213A00D37B5C /* AppDelegate.m */,
-				8512BCE41FEB213A00D37B5C /* SearchViewController.h */,
-				8512BCE51FEB213A00D37B5C /* SearchViewController.m */,
-				85B78DBB20125DAE00C712B3 /* DetailsViewController.h */,
-				85B78DBC20125DAE00C712B3 /* DetailsViewController.m */,
-				85487CCE201357BB00AB3A2C /* CellCourse.h */,
-				85487CCF201357BB00AB3A2C /* CellCourse.m */,
-				85487CCC2013575200AB3A2C /* CellCourse.xib */,
-				85CE7DD02013E17A005A0EF6 /* CellDetail.h */,
-				85CE7DD12013E17A005A0EF6 /* CellDetail.m */,
-				85CE7DCE2013E069005A0EF6 /* CellDetail.xib */,
+				853A00602030C751009CB6CD /* Search view */,
+				853A005F2030C746009CB6CD /* Details view */,
 				8512BCE71FEB213A00D37B5C /* Main.storyboard */,
 				8512BCEF1FEB213A00D37B5C /* LaunchScreen.storyboard */,
 				85B78DC120127B1100C712B3 /* Utils */,
@@ -146,6 +138,30 @@
 				8512BCFD1FEB213A00D37B5C /* Info.plist */,
 			);
 			path = Schedule1329Tests;
+			sourceTree = "<group>";
+		};
+		853A005F2030C746009CB6CD /* Details view */ = {
+			isa = PBXGroup;
+			children = (
+				85B78DBB20125DAE00C712B3 /* DetailsViewController.h */,
+				85B78DBC20125DAE00C712B3 /* DetailsViewController.m */,
+				85CE7DD02013E17A005A0EF6 /* CellDetail.h */,
+				85CE7DD12013E17A005A0EF6 /* CellDetail.m */,
+				85CE7DCE2013E069005A0EF6 /* CellDetail.xib */,
+			);
+			name = "Details view";
+			sourceTree = "<group>";
+		};
+		853A00602030C751009CB6CD /* Search view */ = {
+			isa = PBXGroup;
+			children = (
+				8512BCE41FEB213A00D37B5C /* SearchViewController.h */,
+				8512BCE51FEB213A00D37B5C /* SearchViewController.m */,
+				85487CCE201357BB00AB3A2C /* CellCourse.h */,
+				85487CCF201357BB00AB3A2C /* CellCourse.m */,
+				85487CCC2013575200AB3A2C /* CellCourse.xib */,
+			);
+			name = "Search view";
 			sourceTree = "<group>";
 		};
 		85B78DC120127B1100C712B3 /* Utils */ = {
