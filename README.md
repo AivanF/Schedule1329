@@ -16,8 +16,8 @@ But I also created the icon for both apps.
 - Keyoard is hiding by click ourside it or field being edited.
 
 ### Used techniques:
-- **GUI**: StoryBoard's, xib's, `UINavigationController`, `UITableView`, `UIAlertController`, `UISearchController`
+- **GUI**: StoryBoard's, xib's, `UINavigationController`, `UITableView` (with dynamic cells height), `UIAlertController`, `UISearchController`, `UISwipeGestureRecognizer`
 - **Networking:** `NSURLSession`, `NSMutableURLRequest`
 - **Data storing:** `NSUserDefaults`
-- **Architectural:** Singleton pattern (the `Settings` class), `NSNotificationCenter`
+- **Architectural:** Singleton pattern (the `Settings` class), `NSTimer` `NSNotificationCenter`
 - **Other apps interaction:** `[UIApplication openURL: options: completionHandler: ]`
