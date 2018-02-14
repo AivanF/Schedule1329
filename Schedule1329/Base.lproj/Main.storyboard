@@ -12,7 +12,7 @@
         <!--Search Courses-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Search Courses" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController title="Search Courses" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" id="BYZ-38-t0r" customClass="SearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -73,7 +73,7 @@
         <!--Course description-->
         <scene sceneID="fvv-sD-3RW">
             <objects>
-                <viewController title="Course description" automaticallyAdjustsScrollViewInsets="NO" id="JTK-vv-uAW" customClass="DetailsViewController" sceneMemberID="viewController">
+                <viewController title="Course description" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" id="JTK-vv-uAW" customClass="DetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bhd-xD-sbD"/>
                         <viewControllerLayoutGuide type="bottom" id="jxG-i9-YaR"/>

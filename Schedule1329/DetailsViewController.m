@@ -47,7 +47,6 @@
             
         case 2:{
             // send email
-            
             NSString *message = [NSString stringWithFormat:@"Отправить письмо на этот адрес?\n%@", selectedValue];
             
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"E-mail"
@@ -67,16 +66,12 @@
                                                        options:[NSDictionary new]
                                              completionHandler:^(BOOL success) {
                                                  NSLog(@"Email sent: %s", success ? "true" : "false");
-                                                 [alert dismissViewControllerAnimated:YES
-                                                                           completion:nil];
                                              }];
                 }];
             
             UIAlertAction* no = [UIAlertAction actionWithTitle:@"Нет" style:UIAlertActionStyleCancel
-                                                        handler:^(UIAlertAction * action) {
-                                                            [alert dismissViewControllerAnimated:YES
-                                                                                      completion:nil];
-                                                        }];
+                handler:^(UIAlertAction * action) {
+                }];
             
             [alert addAction:no];
             [alert addAction:yes];
@@ -100,16 +95,12 @@
                                                        options:[NSDictionary new]
                                              completionHandler:^(BOOL success) {
                                                  NSLog(@"Maps opened: %s", success ? "true" : "false");
-                                                 [alert dismissViewControllerAnimated:YES
-                                                                           completion:nil];
                                              }];
                 }];
             
             UIAlertAction* no = [UIAlertAction actionWithTitle:@"Нет" style:UIAlertActionStyleCancel
-                                                       handler:^(UIAlertAction * action) {
-                                                           [alert dismissViewControllerAnimated:YES
-                                                                                     completion:nil];
-                                                       }];
+                handler:^(UIAlertAction * action) {
+                }];
             
             [alert addAction:no];
             [alert addAction:yes];
@@ -131,16 +122,11 @@
                     // and go back:
                     [self.navigationController popViewControllerAnimated:YES];
 //                    [self.navigationController popToRootViewControllerAnimated:YES];
-                    
-                    [alert dismissViewControllerAnimated:YES
-                                              completion:nil];
                 }];
             
             UIAlertAction* no = [UIAlertAction actionWithTitle:@"Нет" style:UIAlertActionStyleCancel
-                                                       handler:^(UIAlertAction * action) {
-                                                           [alert dismissViewControllerAnimated:YES
-                                                                                     completion:nil];
-                                                       }];
+                handler:^(UIAlertAction * action) {
+                }];
             
             [alert addAction:no];
             [alert addAction:yes];
