@@ -14,6 +14,7 @@ But I also created the icon for both apps.
 - You can search for occurrence, send an e-mail, or open map by click on corresponding fields.
 - Paid courses are marked in common catalogue.
 - Keyoard is hiding by click ourside it or field being edited.
+- Gestures are supported to show/hide bottom bar, or to exit from a course description.
 
 ### Used techniques:
 - **GUI**: StoryBoard's, xib's, `UINavigationController`, `UITableView` (with dynamic cells height), `UIAlertController`, `UISearchController`, `UISwipeGestureRecognizer`
