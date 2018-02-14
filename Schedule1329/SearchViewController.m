@@ -234,8 +234,8 @@
         [_searchController.searchBar resignFirstResponder];
     } else {
         [Settings sharedInstance].selectedCourse = [_content objectAtIndex:[indexPath row]];
-        [AppDelegate event_viewItem:[Settings sharedInstance].selectedCourse
-                               name:[Settings sharedInstance].selectedCourse
+        [AppDelegate event_viewItem:[Settings sharedInstance].selectedCourse.unionName
+                               name:[Settings sharedInstance].selectedCourse.unionName
                            category:@"CourseDetails"];
         [self performSegueWithIdentifier:@"showDetails" sender:self];
     }
