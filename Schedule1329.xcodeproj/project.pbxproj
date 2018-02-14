@@ -26,6 +26,7 @@
 		85B78DCC20127D6C00C712B3 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B78DCA20127D6C00C712B3 /* Course.m */; };
 		85CE7DCF2013E069005A0EF6 /* CellDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85CE7DCE2013E069005A0EF6 /* CellDetail.xib */; };
 		85CE7DD22013E17A005A0EF6 /* CellDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CE7DD12013E17A005A0EF6 /* CellDetail.m */; };
+		85FD36D12034259B004AD68D /* PRButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FD36D02034259B004AD68D /* PRButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		85CE7DCE2013E069005A0EF6 /* CellDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellDetail.xib; sourceTree = "<group>"; };
 		85CE7DD02013E17A005A0EF6 /* CellDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellDetail.h; sourceTree = "<group>"; };
 		85CE7DD12013E17A005A0EF6 /* CellDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellDetail.m; sourceTree = "<group>"; };
+		85FD36CF2034259B004AD68D /* PRButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRButton.h; sourceTree = "<group>"; };
+		85FD36D02034259B004AD68D /* PRButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 			children = (
 				85B78DBB20125DAE00C712B3 /* DetailsViewController.h */,
 				85B78DBC20125DAE00C712B3 /* DetailsViewController.m */,
+				85FD36CF2034259B004AD68D /* PRButton.h */,
+				85FD36D02034259B004AD68D /* PRButton.m */,
 				85CE7DD02013E17A005A0EF6 /* CellDetail.h */,
 				85CE7DD12013E17A005A0EF6 /* CellDetail.m */,
 				85CE7DCE2013E069005A0EF6 /* CellDetail.xib */,
@@ -285,6 +290,7 @@
 			files = (
 				85B78DC020127B0D00C712B3 /* Requester.m in Sources */,
 				8512BCE61FEB213A00D37B5C /* SearchViewController.m in Sources */,
+				85FD36D12034259B004AD68D /* PRButton.m in Sources */,
 				8512BCEC1FEB213A00D37B5C /* Schedule1329.xcdatamodeld in Sources */,
 				85487CD0201357BB00AB3A2C /* CellCourse.m in Sources */,
 				85CE7DD22013E17A005A0EF6 /* CellDetail.m in Sources */,

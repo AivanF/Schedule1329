@@ -102,6 +102,9 @@
                     <navigationItem key="navigationItem" title="Описание курса" id="HZ5-yR-UyH">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="h2Y-CQ-oKc"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tblDetails" destination="pR7-Im-7gh" id="Pi2-b4-0PO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPf-eT-cnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

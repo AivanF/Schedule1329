@@ -12,6 +12,7 @@
 
 @interface DetailsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tblDetails;
 - (void)clickCell:(CellDetail*)cell;
 
 // TableView Data Source protocol

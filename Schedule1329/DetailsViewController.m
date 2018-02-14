@@ -34,6 +34,11 @@
     } else {
         _count = 0;
     }
+    
+    _tblDetails.rowHeight = UITableViewAutomaticDimension;
+    _tblDetails.estimatedRowHeight = 64;
+    [_tblDetails setNeedsLayout];
+    [_tblDetails layoutIfNeeded];
 }
 
 - (void)clickCell:(CellDetail*)cell {
@@ -55,12 +60,14 @@
             
             UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Отправить" style:UIAlertActionStyleDefault
                 handler:^(UIAlertAction * action) {
-                    // ?subject=title&body=content
                     NSString *url = [selectedValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+                    
                     NSString *subject = [_selected.unionName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
                     
-                    url = [NSString stringWithFormat:@"mailto:%@?subject=%@", url, subject];
-//                    NSLog(@"Trying to open: %@", url);
+                    NSString *body = [NSString stringWithFormat:@"Здравствуйте, %@", _selected.teachersName];
+                    body = [body stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+                    
+                    url = [NSString stringWithFormat:@"mailto:%@?subject=%@&body=%@", url, subject, body];
                     
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
                                                        options:[NSDictionary new]
@@ -89,7 +96,6 @@
                     NSString *url = [selectedValue stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
                     
                     url = [NSString stringWithFormat:@"http://maps.google.com/?q=%@", url];
-                    NSLog(@"Trying to open: %@", url);
                     
                     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
                                                        options:[NSDictionary new]
@@ -146,16 +152,7 @@
     return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CellDetail *cell = [tableView dequeueReusableCellWithIdentifier:@"CellDetail"];
-    if (cell == nil) {
-        UIViewController *temporaryController = [[UIViewController alloc] initWithNibName:@"CellDetail" bundle:nil];
-        cell = (CellDetail *)temporaryController.view;
-    }
-    NSInteger row = [indexPath row];
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+- (void)setupCell:(CellDetail *)cell at:(NSInteger)row {
     if (row >= _count) {
         NSLog(@"Courses count error!");
     }
@@ -214,11 +211,31 @@
         default:
             break;
     }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CellDetail *cell = [tableView dequeueReusableCellWithIdentifier:@"CellDetail"];
+    if (cell == nil) {
+        UIViewController *temporaryController = [[UIViewController alloc] initWithNibName:@"CellDetail" bundle:nil];
+        cell = (CellDetail *)temporaryController.view;
+    }
+    NSInteger row = [indexPath row];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    cell.btnValue.titleLabel.numberOfLines = 0;
+    
+    [self setupCell:cell at:row];
     cell.index = (int)row;
     cell.ctrl = self;
     
-    // TODO: multiline descriptions?
+//    [cell sizeToFit];
+//    [cell.btnValue.titleLabel sizeToFit];
+//    [cell.btnValue sizeToFit];
+    
+//    NSLog(@"H: %d %d",
+//          (int)cell.btnValue.bounds.size.height,
+//          (int)cell.btnValue.titleLabel.bounds.size.height);
     
     return cell;
 }
@@ -226,7 +243,8 @@
 #pragma mark - TableView Delegate protocol
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 64;
+    return UITableViewAutomaticDimension;
+//    return 64;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
