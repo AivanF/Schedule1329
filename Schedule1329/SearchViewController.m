@@ -16,6 +16,7 @@
     NSArray *_content;
     BOOL _hasfocus;
     UISearchController *_searchController;
+    BOOL _opened;
 }
 @end
 
@@ -24,6 +25,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Set up minor things
+    _opened = YES;
+    [_labLastUpdate setText:[Settings sharedInstance].lastUpdate];
+    
+    UISwipeGestureRecognizer *recognizer;
+    
+    recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeDownFrom:)];
+    [recognizer setDirection:(UISwipeGestureRecognizerDirectionDown)];
+    [_viewDown addGestureRecognizer:recognizer];
+    
+    recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeUpFrom:)];
+    [recognizer setDirection:(UISwipeGestureRecognizerDirectionUp)];
+    [_viewDown addGestureRecognizer:recognizer];
+    
+    UITapGestureRecognizer *tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom:)];
+    [_viewDown addGestureRecognizer:tapper];
+    
+    // Set up major things
     _hasfocus = NO;
     _content = @[];
     
@@ -37,21 +56,22 @@
     [_searchController.searchBar setValue:@"Отмена" forKey:@"_cancelButtonText"];
     [_searchController.searchBar sizeToFit];
     
-    // these leads to constant search bar even after segues
-//    _tblAllCourses.tableHeaderView = _searchController.searchBar;
-//    [_tblAllCourses setContentOffset:CGPointMake(0, _searchController.searchBar.frame.size.height)];
-    
     self.navigationItem.titleView = _searchController.searchBar;
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(eventCoursesUpdate:)
                                                  name:EventCoursesUpdate
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(eventNewLastUpdate:)
+                                                 name:EventNewLastUpdate
+                                               object:nil];
     [self updateContent];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [self setOpened:NO];
+    
     if ([Settings sharedInstance].searchPhrase) {
         [_searchController.searchBar setText:[Settings sharedInstance].searchPhrase];
         [Settings sharedInstance].searchPhrase = nil;
@@ -64,7 +84,6 @@
 
 - (void)updateContent {
     NSString *filterText = _searchController.searchBar.text;
-//    NSLog(@"[ %@ ]", filterText);
     
     // Check if has filter options
     BOOL filter = NO;
@@ -100,9 +119,42 @@
     
     // Sort objects
     _content = [_content sortedArrayUsingSelector:@selector(compare:)];
-//    NSLog(@"Content size: %d", (int)[_content count]);
     
     [_tblAllCourses reloadData];
+}
+
+- (void)setOpened:(BOOL)v {
+    if (v == _opened) {
+        return;
+    }
+    _opened = v;
+    if (_opened) {
+        [UIView animateWithDuration:0.3f animations:^{
+            _heighter.constant = 96;
+            [self.view layoutIfNeeded];
+        }];
+    } else {
+        [UIView animateWithDuration:0.3f animations:^{
+            _heighter.constant = 23;
+            [self.view layoutIfNeeded];
+        }];
+    }
+}
+
+- (void)handleSwipeUpFrom:(UISwipeGestureRecognizer *)recognizer {
+    [self setOpened:YES];
+}
+
+- (void)handleSwipeDownFrom:(UISwipeGestureRecognizer *)recognizer {
+    [self setOpened:NO];
+}
+
+- (void)handleTapFrom:(UITapGestureRecognizer *)recognizer {
+    [self setOpened:!_opened];
+}
+
+- (void)eventNewLastUpdate:(NSNotification *)notification {
+    [_labLastUpdate setText:[Settings sharedInstance].lastUpdate];
 }
 
 - (void)eventCoursesUpdate:(NSNotification *)notification {

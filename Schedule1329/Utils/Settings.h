@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+#define EventCoursesUpdate @"AllCoursesUpdate"
+#define EventNewLastUpdate @"NewLastUpdate"
+
+
 @class Course;
 
 @interface Settings : NSObject
 
 /// JSON with description of all the courses.
 @property NSDictionary *allCourses;
+
+/// Date of last courses list checking.
+@property NSString *lastUpdate;
 
 /// Seleced object from search to description.
 @property Course *selectedCourse;

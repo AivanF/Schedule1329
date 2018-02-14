@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define EventCoursesUpdate @"AllCoursesUpdate"
-
 @interface Course : NSObject
 
 /// Is course paid or free

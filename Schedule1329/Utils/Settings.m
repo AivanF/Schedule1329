@@ -50,10 +50,12 @@ id loadFromFile(NSString *name) {
     self = [super init];
     
     if (self) {
+        _allCourses = nil;
+        _selectedCourse = nil;
+        _lastUpdate = @"Неизвестно";
+        
         defaults = [NSUserDefaults standardUserDefaults];
         if (nil == [defaults objectForKey:@"welldone"]) {
-            _allCourses = nil;
-            _selectedCourse = nil;
             [defaults setObject:@"yep" forKey:@"welldone"];
             [self save];
         } else {
@@ -73,6 +75,7 @@ id loadFromFile(NSString *name) {
 - (void)load {
 //    NSLog(@"Settings-load");
     _allCourses = [defaults objectForKey:@"allcourses"];
+    _lastUpdate = [defaults objectForKey:@"lastupdate"];
 //    _allCourses = loadFromFile(@"allcourses");
     
 }
@@ -83,6 +86,7 @@ id loadFromFile(NSString *name) {
 //        saveToFile(@"allcourses", _allCourses);
 //    }
     [defaults setObject:_allCourses forKey:@"allcourses"];
+    [defaults setObject:_lastUpdate forKey:@"lastupdate"];
     [defaults synchronize];
 }
 

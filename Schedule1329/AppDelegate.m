@@ -31,11 +31,19 @@
     // Download, save and parse all the courses
     [Requester getDataFrom:URL_COURSES
                 completion:^(NSDictionary *data, NSError *err) {
+                    // Update date of last courses update
+                    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+                    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+                    NSString *lst = [dateFormatter stringFromDate:[NSDate date]];
+                    [Settings sharedInstance].lastUpdate = lst;
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:EventNewLastUpdate
+                     object:self];
+                    
+                    // Update courses if there are some differences
                     if ([data description].length != [d description].length) {
 //                        NSLog(@"Parsing courses from web");
                         [Course parseCourses:data maybeError:err];
-                    } else {
-//                        NSLog(@"Ignoring courses from web, there is nothing new");
                     }
                 }];
     
