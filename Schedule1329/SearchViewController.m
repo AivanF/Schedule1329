@@ -10,6 +10,7 @@
 #import "CellCourse.h"
 #import "Course.h"
 #import "Settings.h"
+#import "AppDelegate.h"
 
 @interface SearchViewController ()
 {
@@ -115,6 +116,7 @@
         }
         _content = current;
         [_labCount setText:[NSString stringWithFormat:@"Найдено: %d шт", (int)[_content count]]];
+        [AppDelegate event_search:filterText];
         
     } else {
         // Use raw data
@@ -232,6 +234,9 @@
         [_searchController.searchBar resignFirstResponder];
     } else {
         [Settings sharedInstance].selectedCourse = [_content objectAtIndex:[indexPath row]];
+        [AppDelegate event_viewItem:[Settings sharedInstance].selectedCourse
+                               name:[Settings sharedInstance].selectedCourse
+                           category:@"CourseDetails"];
         [self performSegueWithIdentifier:@"showDetails" sender:self];
     }
 }

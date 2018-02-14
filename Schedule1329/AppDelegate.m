@@ -6,6 +6,7 @@
 //  Copyright © 2017 AivanF. All rights reserved.
 //
 
+@import Firebase;
 #import "AppDelegate.h"
 #import "Requester.h"
 #import "Course.h"
@@ -19,7 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [FIRApp configure];
     
     // Read and parse all the courses
     NSDictionary *d = [Settings sharedInstance].allCourses;
@@ -123,6 +124,30 @@
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+}
+
+#pragma mark - Firebase events
+
++ (void)event_search:(NSString *)phrase {
+    [FIRAnalytics logEventWithName:kFIREventSearch
+                        parameters:@{ kFIRParameterSearchTerm : phrase }];
+    
+}
+
++ (void)event_viewItem:(NSString *)ind name:(NSString *)name category:(NSString *)cat {
+    [FIRAnalytics logEventWithName:kFIREventViewItem
+                        parameters:@{ kFIRParameterItemID : ind,
+                                      kFIRParameterItemName : name,
+                                      kFIRParameterItemCategory : cat,
+                                      }];
+    
+}
+
++ (void)event_select:(NSString *)type content:(NSString *)item {
+    [FIRAnalytics logEventWithName:kFIREventSelectContent
+                        parameters:@{ kFIRParameterContentType : type,
+                                      kFIRParameterItemID : item,
+                                      }];
 }
 
 @end

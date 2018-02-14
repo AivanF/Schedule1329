@@ -10,6 +10,7 @@
 #import "CellDetail.h"
 #import "Settings.h"
 #import "Course.h"
+#import "AppDelegate.h"
 
 @interface DetailsViewController ()
 {
@@ -62,6 +63,7 @@
             
         case 2:{
             // send email
+            [AppDelegate event_select:@"click_email" content:selectedValue];
             NSString *message = [NSString stringWithFormat:@"Отправить письмо на этот адрес?\n%@", selectedValue];
             
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"E-mail"
@@ -83,6 +85,11 @@
                                                        options:[NSDictionary new]
                                              completionHandler:^(BOOL success) {
                                                  NSLog(@"Email sent: %s", success ? "true" : "false");
+                                                 if (success) {
+                                                     [AppDelegate event_select:@"done_email" content:selectedValue];
+                                                 } else {
+                                                     [AppDelegate event_select:@"fail_email" content:selectedValue];
+                                                 }
                                              }];
                 }];
             
@@ -97,6 +104,7 @@
             
         case 3:{
             // open maps
+            [AppDelegate event_select:@"click_maps" content:selectedValue];
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Карта"
                                                                            message:@"Открыть адрес на карте?"
                                                                     preferredStyle:UIAlertControllerStyleAlert];
@@ -111,6 +119,11 @@
                                                        options:[NSDictionary new]
                                              completionHandler:^(BOOL success) {
                                                  NSLog(@"Maps opened: %s", success ? "true" : "false");
+                                                 if (success) {
+                                                     [AppDelegate event_select:@"done_maps" content:selectedValue];
+                                                 } else {
+                                                     [AppDelegate event_select:@"fail_maps" content:selectedValue];
+                                                 }
                                              }];
                 }];
             
@@ -124,6 +137,7 @@
         }break;
             
         default:{
+            [AppDelegate event_select:@"click_search" content:selectedValue];
             NSString *message = [NSString stringWithFormat:@"Искать \"%@\"?", selectedValue];
             
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Поиск"
@@ -134,6 +148,7 @@
                 handler:^(UIAlertAction * action) {
                     // save value
                     [Settings sharedInstance].searchPhrase = selectedValue;
+                    [AppDelegate event_select:@"done_search" content:selectedValue];
                     
                     // and go back:
                     [self.navigationController popViewControllerAnimated:YES];

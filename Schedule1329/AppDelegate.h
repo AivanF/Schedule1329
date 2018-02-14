@@ -17,6 +17,9 @@
 
 - (void)saveContext;
 
++ (void)event_search:(NSString *)phrase;
++ (void)event_viewItem:(NSString *)ind name:(NSString *)name category:(NSString *)cat;
++ (void)event_select:(NSString *)type content:(NSString *)item;
 
 @end
 
