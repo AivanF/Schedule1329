@@ -24,6 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UISwipeGestureRecognizer *recognizer;
+    recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    [recognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.view addGestureRecognizer:recognizer];
+    
     _selected = [Settings sharedInstance].selectedCourse;
     if (_selected) {
         _count = 9;
@@ -39,6 +44,11 @@
     _tblDetails.estimatedRowHeight = 64;
     [_tblDetails setNeedsLayout];
     [_tblDetails layoutIfNeeded];
+}
+
+
+- (void)handleSwipe:(UISwipeGestureRecognizer *)recognizer {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)clickCell:(CellDetail*)cell {

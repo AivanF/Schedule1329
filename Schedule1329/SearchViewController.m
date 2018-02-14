@@ -29,6 +29,13 @@
     _opened = YES;
     [_labLastUpdate setText:[Settings sharedInstance].lastUpdate];
     
+    [self setOpened:YES];
+    [NSTimer scheduledTimerWithTimeInterval:2.0
+                                     target:self
+                                   selector:@selector(fire:)
+                                   userInfo:nil
+                                    repeats:NO];
+    
     UISwipeGestureRecognizer *recognizer;
     
     recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeDownFrom:)];
@@ -70,8 +77,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self setOpened:NO];
-    
     if ([Settings sharedInstance].searchPhrase) {
         [_searchController.searchBar setText:[Settings sharedInstance].searchPhrase];
         [Settings sharedInstance].searchPhrase = nil;
@@ -109,18 +114,22 @@
             }
         }
         _content = current;
-        [_labOut setText:[NSString stringWithFormat:@"Найдено: %d шт", (int)[_content count]]];
+        [_labCount setText:[NSString stringWithFormat:@"Найдено: %d шт", (int)[_content count]]];
         
     } else {
         // Use raw data
         _content = [Course allCourses];
-        [_labOut setText:[NSString stringWithFormat:@"Все кружки (%d шт)", (int)[_content count]]];
+        [_labCount setText:[NSString stringWithFormat:@"Все кружки (%d шт)", (int)[_content count]]];
     }
     
     // Sort objects
     _content = [_content sortedArrayUsingSelector:@selector(compare:)];
     
     [_tblAllCourses reloadData];
+}
+
+- (void)fire:(NSTimer *)t {
+    [self setOpened:NO];
 }
 
 - (void)setOpened:(BOOL)v {
@@ -130,12 +139,12 @@
     _opened = v;
     if (_opened) {
         [UIView animateWithDuration:0.3f animations:^{
-            _heighter.constant = 96;
+            _heighter.constant = 100;
             [self.view layoutIfNeeded];
         }];
     } else {
         [UIView animateWithDuration:0.3f animations:^{
-            _heighter.constant = 23;
+            _heighter.constant = 28;
             [self.view layoutIfNeeded];
         }];
     }

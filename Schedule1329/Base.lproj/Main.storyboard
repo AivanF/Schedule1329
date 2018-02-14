@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RnT-4Z-Nl2">
-                                <rect key="frame" x="0.0" y="64" width="375" height="506"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="CF0-n7-l25"/>
@@ -30,22 +30,22 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbp-tV-J1n">
-                                <rect key="frame" x="0.0" y="571" width="375" height="96"/>
+                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDA-6q-16E">
-                                        <rect key="frame" x="0.0" y="1" width="375" height="21"/>
+                                        <rect key="frame" x="0.0" y="3" width="375" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Данные обновлены:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBU-N9-ux8">
-                                        <rect key="frame" x="0.0" y="30" width="375" height="21"/>
+                                        <rect key="frame" x="0.0" y="32" width="375" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlT-aK-a3G">
-                                        <rect key="frame" x="0.0" y="59" width="375" height="21"/>
+                                        <rect key="frame" x="0.0" y="61" width="375" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -57,12 +57,12 @@
                                     <constraint firstAttribute="trailing" secondItem="wDA-6q-16E" secondAttribute="trailing" id="4Z9-4s-CgK"/>
                                     <constraint firstAttribute="trailing" secondItem="uBU-N9-ux8" secondAttribute="trailing" id="5Td-Pl-yAR"/>
                                     <constraint firstAttribute="trailing" secondItem="IlT-aK-a3G" secondAttribute="trailing" id="G85-UG-B99"/>
-                                    <constraint firstAttribute="height" constant="96" id="Rdg-mZ-D5s"/>
+                                    <constraint firstAttribute="height" constant="100" id="Rdg-mZ-D5s"/>
                                     <constraint firstItem="uBU-N9-ux8" firstAttribute="leading" secondItem="Gbp-tV-J1n" secondAttribute="leading" id="SKs-Bg-7oW"/>
                                     <constraint firstItem="wDA-6q-16E" firstAttribute="leading" secondItem="Gbp-tV-J1n" secondAttribute="leading" id="UtV-LR-4CY"/>
                                     <constraint firstItem="IlT-aK-a3G" firstAttribute="leading" secondItem="Gbp-tV-J1n" secondAttribute="leading" id="Zla-pu-tYL"/>
                                     <constraint firstItem="IlT-aK-a3G" firstAttribute="top" secondItem="uBU-N9-ux8" secondAttribute="bottom" constant="8" id="jB4-Dr-d75"/>
-                                    <constraint firstItem="wDA-6q-16E" firstAttribute="top" secondItem="Gbp-tV-J1n" secondAttribute="top" constant="1" id="ojp-YL-pFg"/>
+                                    <constraint firstItem="wDA-6q-16E" firstAttribute="top" secondItem="Gbp-tV-J1n" secondAttribute="top" constant="3" id="ojp-YL-pFg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -80,8 +80,8 @@
                     <navigationItem key="navigationItem" title="Поиск курсов" id="VLQ-SM-hxB"/>
                     <connections>
                         <outlet property="heighter" destination="Rdg-mZ-D5s" id="G16-24-3XD"/>
+                        <outlet property="labCount" destination="wDA-6q-16E" id="BAj-P2-QuI"/>
                         <outlet property="labLastUpdate" destination="IlT-aK-a3G" id="7QX-Qa-pjl"/>
-                        <outlet property="labOut" destination="wDA-6q-16E" id="Ybp-zT-PcZ"/>
                         <outlet property="tblAllCourses" destination="RnT-4Z-Nl2" id="c7c-bX-02m"/>
                         <outlet property="viewDown" destination="Gbp-tV-J1n" id="Byz-Cx-GHt"/>
                         <segue destination="JTK-vv-uAW" kind="show" identifier="showDetails" id="fSw-hw-sWG"/>

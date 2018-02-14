@@ -12,9 +12,9 @@
     UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tblAllCourses;
-@property (weak, nonatomic) IBOutlet UILabel *labOut;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heighter;
 @property (weak, nonatomic) IBOutlet UIView *viewDown;
+@property (weak, nonatomic) IBOutlet UILabel *labCount;
 @property (weak, nonatomic) IBOutlet UILabel *labLastUpdate;
 
 // SearchBar Delegate protocol
