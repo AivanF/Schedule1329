@@ -196,6 +196,12 @@ NSArray *__allCourses = nil;
 }
 
 + (NSArray *)allCourses {
+    // Prevent from failing if there is no course
+    if (!__allCourses) {
+        @synchronized (self) {
+            __allCourses = @[];
+        }
+    }
     return __allCourses;
 }
 
